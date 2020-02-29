@@ -18,7 +18,7 @@ describe("Mock ES6 class", () => {
 
         // Mock Greeter constructor
         GreeterMock.mockImplementation( (...args) => {
-            console.log("Greeter constructor mock have been called with arguments: %s", JSON.stringify(args) );
+            console.log("Greeter constructor mock has been called with arguments: %s", JSON.stringify(args) );
 
             // call original class constructor
             // https://jestjs.io/docs/en/bypassing-module-mocks
@@ -28,7 +28,7 @@ describe("Mock ES6 class", () => {
 
             // mock 'greet' method
             greetMethodSpy = jest.spyOn(greetInstance, "greet").mockImplementation( (): string => {
-                console.log("'greet' method of mocked Greeter instance have been called.");
+                console.log("'greet' method of mocked Greeter instance has been called.");
                 return "Is it a " + greetInstance.greeting + " ?";
             });
 
