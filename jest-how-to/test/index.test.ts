@@ -27,7 +27,7 @@ describe("Mock ES6 class", () => {
             const greetInstance = new Greeter("mock of " + args[0]);
 
             // mock 'greet' method
-            greetMethodSpy = jest.spyOn(greetInstance, "greet").mockImplementation( () => {
+            greetMethodSpy = jest.spyOn(greetInstance, "greet").mockImplementation( (): string => {
                 console.log("'greet' method of mocked Greeter instance have been called.");
                 return "Is it a " + greetInstance.greeting + " ?";
             });
@@ -48,7 +48,7 @@ describe("Mock ES6 class", () => {
 
     it("should mock method", () => {
         handler();
-        expect(greetMethodSpy).toHaveBeenCalledTimes(1);  // greet method has been called
+        expect(greetMethodSpy).toHaveBeenCalledTimes(1);  // greet() method has been called
     })
 
 });
