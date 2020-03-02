@@ -2,6 +2,7 @@ import sinon from 'ts-sinon';
 import {assert, expect} from "chai";
 
 import { A } from '../src/class A';
+import { B } from '../src/class B';
 import * as BClass from '../src/class B';
 
 describe('A Test', () => {
@@ -17,7 +18,7 @@ describe('A Test', () => {
         // https://medium.com/@kirien.eyma/mocking-importd-class-dependencies-in-sinon-js-with-typescript-8854f9c00ee
         classBStub = sinon.stub(BClass, 'B').callsFake((args) => {
             console.log("constructor 'B' have been called with args: '%s'", JSON.stringify(args));
-            const instanceB = new originalB(args);
+            const instanceB: B = new originalB(args);
             locateStub = sinon.stub(instanceB, 'locate');
             if (args['location'] === 'Russia') {
                 locateStub.callThrough();
