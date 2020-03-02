@@ -1,20 +1,12 @@
 {
-  "name": "test-how-to",
+  "name": "jest-how-to",
   "version": "1.0.0-SNAPSHOT",
   "description": "how-to examples for jest framework",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/vladru/typescript-test-how-to.git"
-  },
-  "scripts": {
-    "compile": "yarn run esLint && tsc",
-    "prepare": "yarn run compile",
-    "esLint": "eslint src/**/*.ts",
-    "esLintFix": "eslint --fix src/**/*.ts",
-    "esLintTestFix": "eslint --fix test/**/*.ts",
-    "test": "yarn esLintTestFix && jest"
   },
   "author": "Vlad Ruzov",
   "license": "ISC",
@@ -28,5 +20,13 @@
     "jest-junit": "^10.0.0",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
-  }
+  },
+  "scripts": {
+    "compile": "yarn run esLint && tsc",
+    "prepare": "yarn run compile",
+    "esLint": "eslint src/**/*.ts",
+    "esLintFix": "eslint --fix src/**/*.ts",
+    "esLintTestFix": "eslint --fix test/**/*.ts",
+    "test": "yarn esLintTestFix && jest"
+  }  
 }
