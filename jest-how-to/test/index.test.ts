@@ -5,10 +5,12 @@
 import {handler} from "../src";
 
 import {Greeter} from "../src/greeter";
+
 jest.mock("../src/greeter");
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
-const GreeterMock: jest.Mock = Greeter;
+// look at Jest built in documentation about MockedClass to get more details
+const GreeterMock = Greeter as jest.MockedClass<Greeter>;
 
 describe("Mock ES6 class", () => {
 
@@ -23,7 +25,7 @@ describe("Mock ES6 class", () => {
             // call original class constructor
             // https://jestjs.io/docs/en/bypassing-module-mocks
             // https://jestjs.io/docs/en/jest-object#jestrequireactualmodulename
-            const {Greeter}= jest.requireActual("../src/greeter");
+            const {Greeter} = jest.requireActual("../src/greeter");
             const greetInstance = new Greeter("mock of " + args[0]);
 
             // mock 'greet' method
@@ -31,7 +33,6 @@ describe("Mock ES6 class", () => {
                 console.log("'greet' method of mocked Greeter instance has been called.");
                 return "Is it a " + greetInstance.greeting + " ?";
             });
-
             return greetInstance;
         })
     });
